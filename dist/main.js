@@ -1,1 +1,1 @@
-console.log("Hello World");
+(()=>{"use strict";function e(e){console.log("::: Running checkForName :::",e),["Picard","Janeway","Kirk","Archer","Georgiou"].includes(e)&&alert("Welcome, Captain!")}console.log(e,(function(t){t.preventDefault(),e(document.getElementById("name").value),console.log("::: Form Submitted :::"),fetch("http://localhost:8080/test").then((e=>e.json())).then((function(e){document.getElementById("results").innerHTML=e.message}))})),alert("I EXIST")})();

@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const ESLintPlugin = require('eslint-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin');
+
 module.exports = {
    entry: "./src/client/index.js",
    module: {
@@ -11,11 +13,13 @@ module.exports = {
             loader: 'babel-loader'
          },
          {
-            test: '/*/',
-            exclude: '/node_modules/',
+            test: '/src\/client\/js/',
             loader: ESLintPlugin.loader
          }
       ]
    },
-   plugins: [new ESLintPlugin()],
+   plugins: [new ESLintPlugin(), new HTMLPlugin({
+      template: "./src/client/views/index.html",
+      filename: "./index.html"
+   })],
 }

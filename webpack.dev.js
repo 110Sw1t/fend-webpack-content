@@ -8,7 +8,7 @@ module.exports = {
    output: {
       path: path.resolve(__dirname, 'dist'), // specify this for CleanWebpackPlugin to work and see path value
     },
-   watch:true, // rebuild when watching for file changes // doesn't have to work with dev server
+   watch:true, // rebuild on file changes, used when working with server other than webpack dev server// rebuilding invokes plugins // [webpack-cli] No need to use the 'serve' command together with '{ watch: true }' configuration, it does not make sense.
    // devServer: {
    //    hot: true, // hot reloading feature
    //  },
@@ -33,7 +33,7 @@ module.exports = {
       new HTMLPlugin({
          template: "./src/client/views/index.html", // Will generate index.html in dist folder, as well as 
                                                     // put script tag of generated main.js 
-         filename: "./index.html"
+         filename: "./index.html" // this has to be of name "index.html" in order to make dev server work
       }),
       new CleanWebpackPlugin({
          // Simulate the removal of files

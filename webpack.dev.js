@@ -23,9 +23,16 @@ module.exports = {
             loader: 'babel-loader'
          },
          {
-            test: '/src\/client\/js/',
+            test: /src\/client\/js/, // If no loaders found for file extension when webpack checks imports in js files
+            // It will use loader for js files
+            // Always use regex without quotations for some reason with quotations regex doesnt match files
+
             loader: ESLintPlugin.loader
-         }
+         },
+         {
+            test: /\.scss$/,
+            use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+         }   
       ]
    },
    plugins: [

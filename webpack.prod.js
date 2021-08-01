@@ -9,12 +9,12 @@ module.exports = {
    module: {
       rules: [
          {
-            test: '/\.js$/',
+            test: /\.js$/,
             exclude: '/node_modules/',
             loader: 'babel-loader'
          },
          {
-            test: '/src\/client\/js/',
+            test: /src\/client\/js/,
             loader: ESLintPlugin.loader
          },
          {
